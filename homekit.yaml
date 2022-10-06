@@ -1,0 +1,43 @@
+  # - filter:
+  #     include_entities:
+  #       - binary_sensor.back_door_contact
+  #       - binary_sensor.motion1_occupancy
+  #       - binary_sensor.back_door_contact
+
+  #       - sensor.weather1_temperature
+  #       - sensor.weather2_temperature
+  #       - sensor.weather1_humidity
+  #       - sensor.weather2_humidity
+  #       - sensor.motion1_illuminance
+  #       - sensor.motion1_illuminance_lux
+
+  #       - light.govee_aura_table_lamp
+  #       - light.govee_floor_lamp
+  #       - light.portable_govee_1
+  #       - light.portable_govee_2
+  #       - light.govee_tv
+  #       - light.govee_floor_lamp
+  #       - light.govee_tv
+
+  #       - light.living_room_fan 
+  #       - light.kitchen_table 
+  #       - light.hue1_white 
+
+  #       - fan.living_room 
+  #       - cover.meross_garage 
+
+  #       - climate.ecobee
+  # - name: HASS Accessory
+  #   mode: accessory
+  #   filter:
+  #     include_entities:
+  #       - media_player.bravia_tv_ha
+    
+      
+     
+
+
+
+
+
+

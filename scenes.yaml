@@ -1,0 +1,80 @@
+- id: '1656063443832'
+  name: July 4th Garage
+  entities:
+    light.garage_1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 191
+      hs_color:
+      - 0
+      - 0.392
+      rgb_color:
+      - 255
+      - 254
+      - 254
+      xy_color:
+      - 0.323
+      - 0.329
+      mode: normal
+      dynamics: none
+      friendly_name: garage 1 left
+      supported_features: 40
+      state: 'on'
+    light.garage_2:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 191
+      hs_color:
+      - 241.523
+      - 77.255
+      rgb_color:
+      - 63
+      - 58
+      - 255
+      xy_color:
+      - 0.1536
+      - 0.0646
+      mode: normal
+      dynamics: none
+      friendly_name: garage 2 right
+      supported_features: 40
+      state: 'on'
+    light.porch:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 128
+      hs_color:
+      - 354.34
+      - 83.137
+      rgb_color:
+      - 255
+      - 43
+      - 63
+      xy_color:
+      - 0.6621
+      - 0.2941
+      mode: normal
+      dynamics: none
+      friendly_name: porch
+      supported_features: 40
+      state: 'on'
+  icon: mdi:firework
+  metadata:
+    light.porch:
+      entity_only: true
+    light.garage_1:
+      entity_only: true
+    light.garage_2:
+      entity_only: true

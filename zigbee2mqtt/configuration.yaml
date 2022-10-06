@@ -1,0 +1,65 @@
+homeassistant: true
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://192.168.1.100:1883
+  user: blaqtuesday
+  password: Rob73273r!
+serial:
+  port: /dev/ttyACM0
+  adapter: deconz
+advanced:
+  network_key:
+    - 238
+    - 164
+    - 9
+    - 62
+    - 20
+    - 80
+    - 97
+    - 120
+    - 71
+    - 63
+    - 12
+    - 168
+    - 131
+    - 153
+    - 253
+    - 126
+  log_level: debug
+frontend:
+  port: 8099
+devices:
+  '0x00158d000705c7f8':
+    friendly_name: back door
+  '0x00158d000709c6c5':
+    friendly_name: weather1
+    temperature_precision: 0
+    humidity_precision: 0
+    pressure_precision: 0
+  '0x00158d000709c710':
+    friendly_name: weather2
+    temperature_precision: 0
+    humidity_precision: 0
+    pressure_precision: 0
+  '0x00158d00079a2bd2':
+    friendly_name: button1
+  '0x00158d00078eb17d':
+    friendly_name: motion1
+  '0x00178801030700b5':
+    friendly_name: hue1_white
+  '0x000d6f0004a8802c':
+    friendly_name: plug1
+  '0x000d6f0004a8779e':
+    friendly_name: plug2
+  '0x54ef4410004e36bc':
+    friendly_name: motion_p1_1
+  '0x54ef4410004ccfb5':
+    friendly_name: motion_p1_2
+  '0x00178801095aae25':
+    friendly_name: hue2_white
+  '0x00158d000832b4a4':
+    friendly_name: fire door
+availability: true
+ota:
+  ikea_ota_use_test_url: false

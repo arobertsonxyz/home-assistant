@@ -1,0 +1,319 @@
+#kiosk_mode:
+#    hide_header: true
+#    custom_width: 1280
+######################
+#     #    Sidebar         #
+#     #                    #
+#     ######################
+# sidebar:
+#   digitalClock: true
+#   date: true
+#   dateFormat: dddd, MMMM DD YYYY
+#   template: |
+#     <li>
+#       {% if now().hour  < 5 %} Good night {{'\U0001F634'}}
+#       {% elif now().hour < 12 %} Good morning {{'\u2615\uFE0F'}}
+#       {% elif now().hour < 18 %} Good afternoon {{'\U0001F44B\U0001F3FB'}}
+#       {% else %} Good evening {{'\U0001F44B\U0001F3FB'}}{% endif %}
+#     </li>
+#   style: |
+#     :host {
+#         background-color:rgba(0,0,0,0.2) !important;
+#         --sidebar-text-color: var(--primary-text-color);
+#         --border-radius: 5px;
+#         -webkit-box-shadow: inset -14px 0px 6px -10px rgba(0,0,0,0.9);
+#         -moz-box-shadow: inset -14px 0px 6px -10px rgba(0,0,0,0.9);
+#         box-shadow: inset -14px 0px 6px -10px rgba(0,0,0,0.9);
+#     }
+#     #customSidebar {
+#        z-index: 9999!important;
+#      }
+#     .sidebarMenu li {
+#         line-height: 35px!important;
+#      }
+#     .sidebarMenu li ha-icon {
+
+#      }
+#     .sidebarMenu li.active {
+#         background-color: #2C2E30!important;
+#         border-radius: 40px!important;
+#         font-weight: bold!important;
+#      }
+#     .sidebarMenu li.active ha-icon {
+
+#      }
+#     .digitalClock {
+#         padding-bottom: 5px;
+#         padding-top: 15px
+#     }
+#     .digitalClock {
+#         font-size: 50px !important;
+#         font-weight: 500!important;
+#         text-align: center;
+#     }
+#     .date {
+#         padding-bottom: 10px;
+#         font-size: 25px;
+#         font-weight: 300;
+#         text-align: center;
+#     }
+#   sidebarMenu:
+#     - action: navigate
+#       active: true
+#       name: Home
+#       icon: mdi:home-outline
+#       navigation_path: /estate-dashboard/main
+#     - action: navigate
+#       active: true
+#       name: Sensors
+#       icon: mdi:bullseye
+#       navigation_path: /estate-dashboard/house
+#     - action: navigate
+#       active: true
+#       name: Subaru
+#       icon: mdi:car
+#       navigation_path: /estate-dashboard/gallery
+#     - action: navigate
+#       active: true
+#       name: Network
+#       icon: mdi:server
+#       navigation_path: /estate-dashboard/gallery
+#   bottomCard:
+#     type: horizontal-stack
+#     cardOptions:
+#       cards:
+#         - type: custom:button-card
+#           entity: climate.ecobee
+#     cardStyle: |
+#       :host {
+#         width: 100%;
+#         background-color: none !important;
+#       }
+#   width:
+#     mobile: 0
+#     tablet: 20
+#     desktop: 25
+#   breakpoints:
+#     mobile: 768
+#     tablet: 1280
+button_card_templates: 
+  apple:
+    styles:
+      card:
+        - border-radius: 12px
+      grid:
+        - position: relative
+      icon:
+        - top: -25%
+        - right: 60%
+      name:
+        - justify-self: start
+        - text-transform: lowercase
+        - padding-left: 10px
+        - font-weight: 400
+        - letter-spacing: 0.005em
+      state:
+        - justify-self: start
+        - padding-left: 10px
+    state:
+      - value: 'on'
+        styles:
+          card:
+            - background-color: rgba(255,255,255,0.8)
+          name:
+            - color: rgba(0,0,0,0.6)
+      - value: 'off'
+        styles:
+          card:
+           - background-color: rgba(0,0,0,0.2)
+          name:
+            - color: rgba(255,255,255,0.3)
+  climate:
+    state:
+      - value: 'heat'
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.2)
+      - value: 'cool'
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.2)
+    
+   
+    ######################
+    #    Start Views     #
+    #                    #
+    ######################
+views:
+  - theme: tablet
+    title: Home
+    path: home
+    type: 'custom:grid-layout'
+    layout: #computer size
+      margin: 0
+      grid-gap: 5%
+      grid-template-columns: 0 repeat(3, 1fr) 0fr
+      grid-template-rows: repeat(3, fit-content(100%)) 
+      grid-template-areas: |
+        ". top  top  top ."
+        ". fav  fav  fav ."
+        ". bot  bot  bot ."
+      mediaquery: # firetablet screen size 
+        "(max-width: 1280px)":
+          margin: 0
+          grid-gap: 2vw
+          grid-template-columns: 0 repeat(3, 1fr) 0  #extra columns for margin after sidebar card
+          grid-template-rows: repeat(4, fit-content(100%)) 0fr
+          grid-template-areas: |
+            ". .    .    .   ."
+            ". top  top  top ."
+            ". fav  fav  fav ."
+            ". fav  fav  fav ."
+            ". bot  bot  bot ."
+    cards: 
+    ######################
+    #     TOP PART       #
+    #                    #
+    ######################
+      - type: horizontal-stack
+        cards:
+          - type: markdown
+            content: >
+              top part of page
+        view_layout: 
+          grid-area: top
+    ######################
+    #    FAVORITES       #
+    #                    #
+    ######################
+      - type: grid
+        title: Left
+        columns: 5
+        square: false
+        cards:
+          - type: custom:button-card
+            icon: mdi:lightbulb
+            entity: light.kitchen
+            aspect_ratio: 1/1
+            template: apple
+            styles:
+              custom_fields:
+                ring:
+                  - position: absolute
+                  - right: 5%
+                  - top: 10%
+                  - width: 30%
+                  - opacity: 1
+            custom_fields:
+              ring: |
+                [[[ if (entity.state == 'on' && entity.attributes.brightness) {
+                  const brightness = Math.round(entity.attributes.brightness/2.55);
+                  const radius = 20.5; const circumference = radius * 2 * Math.PI;
+                  return `<svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="${radius}"
+                  stroke="#b2b2b2" stroke-width="2" fill="none"
+                  style="transform: rotate(-90deg); transform-origin: 50% 50%;
+                  stroke-dasharray: ${circumference};
+                  stroke-dashoffset: ${circumference - brightness / 100 * circumference};" />
+                  <text x="50%" y="54%" fill="#8d8e90" font-size="14"
+                  text-anchor="middle" alignment-baseline="middle">
+                  ${brightness}<tspan font-size="10">%</tspan></text></svg>`;} 
+                ]]]
+            hold_action:
+              !include popup/kitchen.yaml
+
+          - type: custom:button-card
+            entity: light.master_group
+            icon: mdi:lamp
+            template: apple
+            aspect_ratio: 1/1
+            label: |
+              [[[
+                var bri = Math.round(entity.attributes.brightness / 2.55); return (bri
+                ? bri : '0') + '%';
+              ]]]
+            show_label: false
+            show_state: false
+
+          - type: custom:button-card
+            entity: climate.ecobee
+            icon: mdi:thermometer-lines
+            template: 
+              - apple
+              - climate
+            aspect_ratio: 1/1
+            styles:
+              name:
+                - color: |
+                    [[[
+                      if (entity.state == "heat") return 'red';
+                      if (entity.state == "cool") return 'blue';
+                      else return 'grey';
+                    ]]]
+            show_label: true
+            label: >
+              [[[ 
+                return states['sensor.ecobee_current_temperature'].state;
+              ]]]
+          # - type: custom:button-card
+          #   entity: light.kitchen
+          #   template: apple
+          #   custom_fields:
+          #     ring: |
+          #       [[[ if (entity.state == 'on' && entity.attributes.brightness) {
+          #         const brightness = Math.round(entity.attributes.brightness/2.55);
+          #         const radius = 20.5; const circumference = radius * 2 * Math.PI;
+          #         return `<svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="${radius}"
+          #         stroke="rgba(0,0,0,0.8)" stroke-width="2" fill="none"
+          #         style="transform: rotate(-90deg); transform-origin: 50% 50%;
+          #         stroke-dasharray: ${circumference};
+          #         stroke-dashoffset: ${circumference - brightness / 100 * circumference};" />
+          #         <text x="50%" y="54%" fill="rgba(0,0,0,0.5)" font-size="16" font-weight= "bold"
+          #         text-anchor="middle" alignment-baseline="middle">
+          #         ${brightness}<tspan font-size="10">%</tspan></text></svg>`;} 
+          #       ]]]
+          #   aspect_ratio: 1/1
+          #   color-type: icon
+          #   color: auto
+          #   styles:
+          #     custom_fields:
+          #       ring:
+          #         - position: absolute
+          #         - right: 5%
+          #         - top: 10%
+          #         - width: 20%
+          #   tap_action:
+          #     action: toggle
+          #     haptic: success
+          #   hold_action:
+          #     action: more-info
+          #     haptic: selection
+          #   show_last_changed: false
+          #   show_state: false
+          #   show_label: true
+          #   label: |
+          #     [[[
+          #       var bri = Math.round(entity.attributes.brightness / 2.55); return (bri
+          #       ? bri : '0') + '%';
+          #     ]]]
+        view_layout:
+          grid-area: fav 
+    ######################
+    #     BOT            #
+    #                    #
+    ######################
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: binary_sensor.back_door 
+            show_state: true
+            size: 2vw
+          - type: custom:button-card
+            entity: cover.garage_door
+            show_state: true
+            size: 2vw
+          - type: custom:button-card
+            entity: lock.door
+            show_state: true
+            size: 2vw
+        view_layout:
+          grid-area: bot

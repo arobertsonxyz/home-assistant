@@ -1,0 +1,151 @@
+-== Watchman Report ==- 
+
+-== Congratulations, all 10 services from your config are available!
+
+-== Missing 91 entity(ies) from 187 found in your config:
++--------------------------------+---------+--------------------------------------------------------------+
+| Entity ID                      | State   | Location                                                     |
++--------------------------------+---------+--------------------------------------------------------------+
+| binary_sensor.front_motion     | missing | automations.yaml:19                                          |
+| switch.front_live_stream       | missing | automations.yaml:24                                          |
+| light.master1                  | missing | automations.yaml:38,45                                       |
+| light.master2                  | missing | automations.yaml:39,46                                       |
+| sensor.dimmer_switch1_action   | missing | automations.yaml:48                                          |
+| media_player.amazon_fire_media | missing | custom_components/fullykiosk/services.yaml:9,23,44,74,88,102 |
+| _player                        |         | ,133,154,168,182                                             |
+| alarm_control_panel.alarm      | missing | custom_components/alarmo/services.yaml:9,58                  |
+| camera.front_door              | missing | custom_components/browser_mod/services.yaml:47               |
+| button.door_wake ('Door Wake') | unknown | .storage/lovelace.lovelace_all:27                            |
+| remote.master_atv              | missing | .storage/lovelace.lovelace_all:118                           |
+| media_player.master_atv        | missing | .storage/lovelace.lovelace_all:130                           |
+| light.hue_lightstrip_plus_1    | missing | .storage/lovelace.lovelace_all:152                           |
+| light.hue_go                   | missing | .storage/lovelace.lovelace_all:166                           |
+| binary_sensor.broadcom_adsl_ro | missing | .storage/lovelace.lovelace_all:180                           |
+| uter_wan_status                |         |                                                              |
+| binary_sensor.fire_tablet_devi | missing | .storage/lovelace.lovelace_all:181                           |
+| ce_admin                       |         |                                                              |
+| binary_sensor.fire_tablet_kios | missing | .storage/lovelace.lovelace_all:182                           |
+| k_mode                         |         |                                                              |
+| binary_sensor.fire_tablet_plug | missing | .storage/lovelace.lovelace_all:183                           |
+| ged_in                         |         |                                                              |
+| binary_sensor.front_door_ding_ | missing | .storage/lovelace.lovelace_all:184                           |
+| 2                              |         |                                                              |
+| binary_sensor.front_door_motio | missing | .storage/lovelace.lovelace_all:185                           |
+| n_2                            |         |                                                              |
+| binary_sensor.front_motion_2   | missing | .storage/lovelace.lovelace_all:186                           |
+| binary_sensor.living_room_moti | missing | .storage/lovelace.lovelace_all:187                           |
+| on_2                           |         |                                                              |
+| binary_sensor.my_wall_panel_mo | missing | .storage/lovelace.lovelace_all:188                           |
+| tion_detected                  |         |                                                              |
+| binary_sensor.ecobee           | missing | .storage/lovelace.lovelace_all:191                           |
+| binary_sensor.ecobee_2         | missing | .storage/lovelace.lovelace_all:192                           |
+| binary_sensor.ecobee_master    | missing | .storage/lovelace.lovelace_all:193                           |
+| binary_sensor.ecobee_master_2  | missing | .storage/lovelace.lovelace_all:194                           |
+| button.fire_tablet_bring_to_fo | missing | .storage/lovelace.lovelace_all:212                           |
+| reground                       |         |                                                              |
+| button.fire_tablet_load_start_ | missing | .storage/lovelace.lovelace_all:213                           |
+| url                            |         |                                                              |
+| button.fire_tablet_reboot_devi | missing | .storage/lovelace.lovelace_all:214                           |
+| ce                             |         |                                                              |
+| button.fire_tablet_restart_bro | missing | .storage/lovelace.lovelace_all:215                           |
+| wser                           |         |                                                              |
+| button.fire_tablet_send_to_bac | missing | .storage/lovelace.lovelace_all:216                           |
+| kground                        |         |                                                              |
+| button.ecobee_clear_hold       | missing | .storage/lovelace.lovelace_all:217                           |
+| button.subaru_horn_start       | unknown | .storage/lovelace.lovelace_all:218                           |
+| ('subaru Horn Start')          |         |                                                              |
+| button.subaru_horn_stop        | unknown | .storage/lovelace.lovelace_all:219                           |
+| ('subaru Horn Stop')           |         |                                                              |
+| button.subaru_lights_start     | unknown | .storage/lovelace.lovelace_all:220                           |
+| ('subaru Lights Start')        |         |                                                              |
+| button.subaru_lights_stop      | unknown | .storage/lovelace.lovelace_all:221                           |
+| ('subaru Lights Stop')         |         |                                                              |
+| button.subaru_remote_start     | unknown | .storage/lovelace.lovelace_all:224                           |
+| ('subaru Remote Start')        |         |                                                              |
+| button.subaru_remote_stop      | unknown | .storage/lovelace.lovelace_all:225                           |
+| ('subaru Remote Stop')         |         |                                                              |
+| light.fire_tablet_screen       | missing | .storage/lovelace.lovelace_all:258                           |
+| light.front_light_2            | missing | .storage/lovelace.lovelace_all:259                           |
+| light.master_nightstand        | missing | .storage/lovelace.lovelace_all:261                           |
+| lock.subaru_door_locks         | unknown | .storage/lovelace.lovelace_all:272                           |
+| ('subaru Door Locks')          |         |                                                              |
+| media_player.android_tv_192_16 | missing | .storage/lovelace.lovelace_all:283                           |
+| 8_1_59                         |         |                                                              |
+| media_player.fire_tablet_media | missing | .storage/lovelace.lovelace_all:287                           |
+| _player                        |         |                                                              |
+| media_player.master_tv         | missing | .storage/lovelace.lovelace_all:291                           |
+| media_player.plex_plex_for_and | missing | .storage/lovelace.lovelace_all:295                           |
+| roid_tv_shield_android_tv      |         |                                                              |
+| media_player.plex_plex_for_ios | missing | .storage/lovelace.lovelace_all:299                           |
+| _ipad                          |         |                                                              |
+| media_player.lg_webos_tv_lj550 | missing | .storage/lovelace.lovelace_all:303                           |
+| 0                              |         |                                                              |
+| select.front_door_event_select | missing | .storage/lovelace.lovelace_all:317                           |
+| select.front_event_select      | missing | .storage/lovelace.lovelace_all:318                           |
+| select.living_room_event_selec | missing | .storage/lovelace.lovelace_all:319                           |
+| t                              |         |                                                              |
+| select.ecobee_current_mode     | unknown | .storage/lovelace.lovelace_all:320                           |
+| ('ecobee Current Mode')        |         |                                                              |
+| select.subaru_climate_preset   | unknown | .storage/lovelace.lovelace_all:321                           |
+| ('subaru Climate Preset')      |         |                                                              |
+| sensor.broadcom_adsl_router_b_ | missing | .storage/lovelace.lovelace_all:329                           |
+| received                       |         |                                                              |
+| sensor.broadcom_adsl_router_b_ | missing | .storage/lovelace.lovelace_all:330                           |
+| sent                           |         |                                                              |
+| sensor.broadcom_adsl_router_ex | missing | .storage/lovelace.lovelace_all:331                           |
+| ternal_ip                      |         |                                                              |
+| sensor.broadcom_adsl_router_ki | missing | .storage/lovelace.lovelace_all:332                           |
+| b_s_received                   |         |                                                              |
+| sensor.broadcom_adsl_router_ki | missing | .storage/lovelace.lovelace_all:333                           |
+| b_s_sent                       |         |                                                              |
+| sensor.broadcom_adsl_router_pa | missing | .storage/lovelace.lovelace_all:334                           |
+| ckets_received                 |         |                                                              |
+| sensor.broadcom_adsl_router_pa | missing | .storage/lovelace.lovelace_all:335                           |
+| ckets_sent                     |         |                                                              |
+| sensor.broadcom_adsl_router_pa | missing | .storage/lovelace.lovelace_all:336                           |
+| ckets_s_received               |         |                                                              |
+| sensor.broadcom_adsl_router_pa | missing | .storage/lovelace.lovelace_all:337                           |
+| ckets_s_sent                   |         |                                                              |
+| sensor.broadcom_adsl_router_wa | missing | .storage/lovelace.lovelace_all:338                           |
+| n_status                       |         |                                                              |
+| sensor.fire_tablet_current_pag | missing | .storage/lovelace.lovelace_all:339                           |
+| e                              |         |                                                              |
+| sensor.fire_tablet_foreground_ | missing | .storage/lovelace.lovelace_all:340                           |
+| app                            |         |                                                              |
+| sensor.fire_tablet_last_app_st | missing | .storage/lovelace.lovelace_all:341                           |
+| art                            |         |                                                              |
+| sensor.fire_tablet_screen_orie | missing | .storage/lovelace.lovelace_all:342                           |
+| ntation                        |         |                                                              |
+| sensor.front_door_info         | missing | .storage/lovelace.lovelace_all:343                           |
+| sensor.front_door_wireless     | missing | .storage/lovelace.lovelace_all:344                           |
+| sensor.front_info              | missing | .storage/lovelace.lovelace_all:345                           |
+| sensor.front_wireless          | missing | .storage/lovelace.lovelace_all:346                           |
+| sensor.living_room_info        | missing | .storage/lovelace.lovelace_all:347                           |
+| sensor.living_room_wireless    | missing | .storage/lovelace.lovelace_all:348                           |
+| sensor.plex_shield_android_tv  | missing | .storage/lovelace.lovelace_all:349                           |
+| sensor.samba_backup            | missing | .storage/lovelace.lovelace_all:350                           |
+| sensor.dimmer_switch1_action_d | missing | .storage/lovelace.lovelace_all:358                           |
+| uration                        |         |                                                              |
+| switch.fire_tablet_kiosk_lock  | missing | .storage/lovelace.lovelace_all:400                           |
+| switch.fire_tablet_maintenance | missing | .storage/lovelace.lovelace_all:401                           |
+| _mode                          |         |                                                              |
+| switch.fire_tablet_motion_dete | missing | .storage/lovelace.lovelace_all:402                           |
+| ction                          |         |                                                              |
+| switch.fire_tablet_screensaver | missing | .storage/lovelace.lovelace_all:403                           |
+| switch.front_door_event_stream | missing | .storage/lovelace.lovelace_all:404                           |
+| switch.front_door_live_stream  | missing | .storage/lovelace.lovelace_all:405                           |
+| switch.front_event_stream      | missing | .storage/lovelace.lovelace_all:406                           |
+| switch.front_siren_2           | missing | .storage/lovelace.lovelace_all:408                           |
+| switch.living_room_event_strea | missing | .storage/lovelace.lovelace_all:409                           |
+| m                              |         |                                                              |
+| switch.living_room_live_stream | missing | .storage/lovelace.lovelace_all:410                           |
+| switch.living_room_siren_2     | missing | .storage/lovelace.lovelace_all:411                           |
+| sensor.front_last_activity     | missing | .storage/lovelace.lovelace_all:432                           |
+| sensor.front_last_motion       | missing | .storage/lovelace.lovelace_all:436                           |
+| sensor.front_volume            | missing | .storage/lovelace.lovelace_all:444                           |
+| camera.front                   | missing | .storage/lovelace.lovelace_all:452,461                       |
++--------------------------------+---------+--------------------------------------------------------------+
+
+-== Report created on 21 Apr 2022 18:28:15
+-== Parsed 31 files in 0.58s., ignored 0 files 
+-== Generated in: 0.16s. Validated in: 0.00s.

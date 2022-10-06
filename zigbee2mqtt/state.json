@@ -1,0 +1,117 @@
+{
+    "0x00158d000705c7f8": {
+        "linkquality": 255,
+        "contact": true,
+        "voltage": 2995,
+        "battery": 97,
+        "device_temperature": 28,
+        "power_outage_count": 160
+    },
+    "0x00158d000709c6c5": {
+        "linkquality": 255,
+        "voltage": 2975,
+        "battery": 83,
+        "temperature": 22,
+        "humidity": 53,
+        "pressure": 997,
+        "power_outage_count": 575
+    },
+    "0x00158d000709c710": {
+        "temperature": 15,
+        "humidity": 75,
+        "pressure": 997,
+        "linkquality": 215,
+        "voltage": 3025,
+        "battery": 100,
+        "power_outage_count": 36
+    },
+    "0x00158d00079a2bd2": {
+        "linkquality": 239,
+        "voltage": 3015,
+        "battery": 100,
+        "device_temperature": 26,
+        "power_outage_count": 49
+    },
+    "0x00158d00078eb17d": {
+        "occupancy": false,
+        "illuminance": 10,
+        "illuminance_lux": 10,
+        "voltage": 3025,
+        "battery": 100,
+        "device_temperature": 25,
+        "linkquality": 255,
+        "power_outage_count": 39
+    },
+    "0x00178801030700b5": {
+        "brightness": 10,
+        "state": "ON",
+        "linkquality": 255,
+        "update": {
+            "state": "idle"
+        },
+        "update_available": false
+    },
+    "0x000d6f0004a8802c": {
+        "linkquality": 255,
+        "state": "ON",
+        "current": 7.74,
+        "power": 816.57,
+        "voltage": 124.7,
+        "update": {
+            "state": "idle"
+        },
+        "update_available": false
+    },
+    "0x000d6f0004a8779e": {
+        "linkquality": 255,
+        "state": "ON",
+        "voltage": 171.44,
+        "current": 0.77,
+        "power": 53.99,
+        "update": {
+            "state": "idle"
+        },
+        "update_available": false
+    },
+    "0x54ef4410004e36bc": {
+        "voltage": 3031,
+        "battery": 100,
+        "detection_interval": 2,
+        "motion_sensitivity": "high",
+        "trigger_indicator": false,
+        "occupancy": false,
+        "illuminance": 0,
+        "linkquality": 255,
+        "device_temperature": 25,
+        "power_outage_count": 1
+    },
+    "0x54ef4410004ccfb5": {
+        "voltage": 3039,
+        "battery": 100,
+        "detection_interval": 30,
+        "motion_sensitivity": "medium",
+        "trigger_indicator": false,
+        "occupancy": false,
+        "illuminance": 0,
+        "device_temperature": 25,
+        "power_outage_count": 1,
+        "linkquality": 255
+    },
+    "0x00178801095aae25": {
+        "state": "ON",
+        "brightness": 13,
+        "linkquality": 255,
+        "update": {
+            "state": "idle"
+        },
+        "update_available": false
+    },
+    "0x00158d000832b4a4": {
+        "voltage": 3025,
+        "battery": 100,
+        "device_temperature": 26,
+        "power_outage_count": 9,
+        "contact": true,
+        "linkquality": 255
+    }
+}

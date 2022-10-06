@@ -1,0 +1,7 @@
+# media_player.bravia_baby:
+#   friendly_name: Universal Media Player
+#   source_list: [HDMI 4, SHIELD, NewsOn6,]
+#   device_class: tv
+binary_sensor.back_door_contact:
+  friendly_name: back door custom
+  device_class: door

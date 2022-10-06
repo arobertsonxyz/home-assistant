@@ -1,0 +1,140 @@
+default_config:
+
+logger:
+  default: info
+
+zone:
+  - name: Home
+    latitude: !secret home_latitude  
+    longitude: !secret home_longitude 
+    radius: 250
+    icon: mdi:home
+    
+  - name: Gym
+    latitude: !secret gym_latitude 
+    longitude: !secret gym_longitude
+    radius: 100
+    icon: mdi:weight-lifter
+
+automation: !include automations.yaml
+binary_sensor: !include binary_sensor.yaml
+template: !include template.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+#stream:
+#  ll_hls: true
+#  part_duration: 0.75
+#  segment_duration: 6
+
+http: 
+  use_x_forwarded_for: true
+  server_port: 8123
+  trusted_proxies:
+    - 192.168.1.100
+    - 172.30.33.3
+    - 127.0.0.1
+    - ::1
+
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: ha
+  username: homeassistant
+  password: !secret influxdb_password 
+  max_retries: 3
+  default_measurement: state
+  include:
+    domains: 
+      - weather
+      - climate
+    entities:
+      - sensor.ecobee_current_temperature
+      - sensor.ecobee_current_humidity
+      - sensor.ecobee_living_room_temperature
+      - sensor.master_temperature
+      - sensor.office_temperature
+      - sensor.weather1_temperature
+      - sensor.weather2_temperature
+      - sensor.weather1_humidity
+      - sensor.weather2_humidity
+      - sensor.krvs_temperature
+      - sensor.krvs_relative_humidity
+      - weather.ecobee_ha
+      - weather.tomorrow_io_home_nowcast
+      #testing out new template sensor hvac runtime
+      - sensor.hvac_action
+  
+recorder:
+  db_url: !secret recorder_url 
+
+tts:
+  - platform: google_translate
+
+withings:
+    use_webhook: true
+  
+homekit:
+  - filter:
+      include_domains:
+        - climate
+      include_entities:
+        #helpers
+        - input_boolean.andrew_home
+        - input_boolean.back_door
+        #aqara
+        - binary_sensor.motion1_occupancy
+        - binary_sensor.back_door_contact
+        - binary_sensor.motion_p1_1_occupancy
+        - binary_sensor.motion_p1_2_occupancy
+        - sensor.weather1_temperature
+        - sensor.weather2_temperature
+        - sensor.weather1_humidity
+        - sensor.weather2_humidity
+        - sensor.motion1_illuminance
+        - sensor.motion1_illuminance_lux
+        - sensor.motion_p1_1_illuminance_lux
+        - sensor.motion_p1_2_illuminance_lux
+        #govee
+        - light.aura_table_lamp
+        - light.portable_govee_1
+        - light.portable_govee_2
+        - light.floor_lamp
+        - light.tv
+        #Z2M
+        - light.hue1_white 
+        - light.hue2_white
+        #garage door
+        - cover.meross_garage 
+        #shelly 
+        - light.kitchen_table 
+        #bond io
+        - fan.living_room 
+        - light.living_room_fan
+      exclude_entities:
+        - climate.thermostat
+        # # #ecobee entities 
+        # - climate.ecobee
+        # - sensor.ecobee_current_temperature
+        # - sensor.ecobee_current_humidity
+        # - sensor.living_room_temperature
+        # - sensor.master_temperature
+        # - sensor.office_temperature
+        # - binary_sensor.office
+        # - binary_sensor.office_2
+        # - binary_sensor.master_2
+        # - binary_sensor.master
+        # - binary_sensor.ecobee_living_room
+        # - binary_sensor.ecobee_living_room_2
+        # - binary_sensor.ecobee
+        # - binary_sensor.ecobee_2
+        #binary sensor template, test for master occupancy
+        # - binary_sensor.master_bedroom_occupied
+
+  # template:
+  #   - sensor: 
+  #       - name: hvac_action
+  #         state: "{{ state_attr('climate.ecobee', 'hvac_action') }}"

@@ -1,0 +1,92 @@
+- sensor: 
+  - name: hvac_action
+    state: "{{ state_attr('climate.ecobee', 'hvac_action') }}"
+
+- sensor:
+    - name: Ecobee Action
+      availability: '{{ not is_state("climate.ecobee", "unavailable") }}'
+      state: '{{ state_attr("climate.ecobee", "hvac_action")|capitalize }}'
+
+# - binary_sensor:
+#     # -- ecobee --
+#     # HVAC any equipment running
+#   - name: 'HVAC Ecobee State'
+#     state: >
+#       {{
+#         state_attr('climate.ecobee', 'fan')                       or
+#         is_state_attr('climate.ecobee', 'hvac_action', 'heating') or
+#         is_state_attr('climate.ecobee', 'hvac_action', 'cooling')
+#       }}
+
+#   # HVAC fan on/off (when heating/cooling NOT running)
+#   - name: 'HVAC Ecobee Fan State'
+#     state: >
+#       {{ is_state_attr('climate.ecobee', 'hvac_action', 'fan') }}
+
+#   # HVAC heating on/off
+#   - name: 'HVAC Ecobee Heating State'
+#     state: >
+#       {{ is_state_attr('climate.ecobee', 'hvac_action', 'heating') }}
+
+#   # HVAC cooling on/off
+#   - name: 'HVAC Ecobee Cooling State'
+#     state: >
+#       {{ is_state_attr('climate.ecobee', 'hvac_action', 'cooling') }} 
+
+- sensor:
+  - name: Withings weight lbs Andrew R
+    unit_of_measurement: "lbs"
+    state: >-
+      {{
+        (states('sensor.withings_weight_kg_Andrew_R') | float(0) * 2.20462262185)
+        | round(2, default=0)
+      }}
+    icon: "mdi:weight-pound"
+
+  - name: Withings bone mass lbs Andrew R
+    unit_of_measurement: "lbs"
+    state: >-
+      {{
+        (states('sensor.withings_bone_mass_kg_Andrew_R') | float(0) * 2.20462262185)
+        | round(2, default=0)
+      }}
+    icon: "mdi:weight-pound"
+
+  - name: Withings fat free mass lbs Andrew R
+    unit_of_measurement: "lbs"
+    state: >-
+      {{
+        (states('sensor.withings_fat_free_mass_kg_Andrew_R') | float(0) * 2.20462262185)
+        | round(2, default=0)
+      }}
+    icon: "mdi:weight-pound"
+
+  - name: Withings fat mass lbs Andrew R
+    unit_of_measurement: "lbs"
+    state: >-
+      {{
+        (states('sensor.withings_fat_mass_kg_Andrew_R') | float(0) * 2.20462262185)
+        | round(2, default=0)
+      }}
+    icon: "mdi:weight-pound"
+
+  - name: Withings muscle mass lbs Andrew R
+    unit_of_measurement: "lbs"
+    state: >-
+      {{
+        (states('sensor.withings_muscle_mass_kg_Andrew_R') | float(0) * 2.20462262185)
+        | round(2, default=0)
+      }}
+    icon: "mdi:weight-pound"
+
+
+
+
+# - sensor: 
+#   - platform: history_stats
+#     name: Thermostat Cooling Today
+#     entity_id: sensor.hvac_action
+#     state: 'cooling'
+#     type: time
+#     start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+#     end: "{{ now() }}"

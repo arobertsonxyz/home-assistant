@@ -1,0 +1,100 @@
+- id: '1649321028263'
+  alias: Subaru Start Automation
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_button.subaru_remote_start
+  condition: []
+  action:
+  - service: subaru.remote_start
+    data:
+      preset_name: Auto
+      device_id: df5a3ee6d62f7700081416378a5573d5
+  mode: single
+- id: '1650390388061'
+  alias: Z2M - Hue Dimmer switch 4 buttons
+  description: ''
+  use_blueprint:
+    path: harbri/z2m-philips-hue-dimmer-switch-individual-buttons.yaml
+    input:
+      button_1:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id:
+          - light.master1
+          - light.master2
+      button_4:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id:
+          - light.master1
+          - light.master2
+      button_2: []
+      dimmer: sensor.dimmer_switch1_action
+- id: '1654067015414'
+  alias: Aqara Wireless Switch (single, double, triple, quadruple)
+  description: ''
+  use_blueprint:
+    path: Malte/zigbee2mqtt-aqara-wireless-switch-single-double-triple-quadruple.yaml
+    input:
+      switch: sensor.button1_action
+      press_single:
+      - service: light.toggle
+        data: {}
+        target:
+          entity_id: light.hue_go_1
+- id: '1659684581905'
+  alias: backdoor_hk
+  description: automation for backdoor contact sensor - show single tile in IOS home
+    app
+  trigger:
+  - type: opened
+    platform: device
+    device_id: 15a5cea6a06cbb87969e399f7be98f87
+    entity_id: binary_sensor.back_door_contact
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.back_door
+  mode: single
+- id: '1660863834787'
+  alias: blue light when cooling
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.ecobee_action
+    to: cooling
+    from: idle
+  condition: []
+  action:
+  - device_id: fbec542f70a80d29574e81e688fc7f92
+    domain: light
+    entity_id: light.hue_go_1
+    type: flash
+  mode: single
+- id: '1661598192131'
+  alias: New Automation
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.motion_p1_2_occupancy
+    - binary_sensor.master_2
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.master
+    state: 'on'
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.master_occupancy
+  mode: single
